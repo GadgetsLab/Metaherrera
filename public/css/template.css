@@ -19,5 +19,24 @@
 .chip.warning, .chip.news, .chip.success, .chip.danger{
     color: #fff !important;
 }
+.fixed{
+    position: fixed;
+}
+.height-full{
+    height: 100%;
+}
+.sidebar_header{
+    height:90px;
+    width: 100%;
+    background-image: url(../images/sidebar_head_bg.png);
+    background-size: cover;
+}
+.no-padding{
+    padding: 0 !important;
+}
+.collapsible{
+    box-shadow: none !important;
+    margin: 0 !important;
+}
 
 

@@ -1,3 +1,1 @@
-/**
- * Created by RDuuke on 30/12/2015.
- */
+tinymce.init({ selector:'.editor' });
