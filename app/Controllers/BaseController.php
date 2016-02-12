@@ -11,4 +11,9 @@ class BaseController implements Controller
         $title = "Newbie Framework";
         return view('welcome', compact('title'));
     }
+
+    public function Service()
+    {
+        echo "esto es la ruta de service";
+    }
 }

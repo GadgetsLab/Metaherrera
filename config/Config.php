@@ -11,6 +11,7 @@ $DB_DATOS = [
 $timezone =  new \DateTime('America/Bogota');
 
 /* Configuration URL*/
-define('BASE_URL', 'http://localhost:8080/metaherrera');
-define('BASE_PUBLIC','http://localhost:8080/metaherrera/public');
+define('BASE_URL', 'http://localhost/MetaHerrera/');
+define('BASE_PUBLIC','http://localhost/MetaHerrera/public');
+
 
