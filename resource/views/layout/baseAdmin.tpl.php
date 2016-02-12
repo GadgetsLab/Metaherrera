@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <?php $title = isset($title) ? $title : "Framewok Newbie"; ?>
+    <?php $title = isset($title) ? $title : "Panel Administracion MetaHerrera"; ?>
     <title><?php echo $title; ?></title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?php style('css/template.css'); ?>
@@ -12,20 +12,19 @@
 </head>
 <body class="blue-grey lighten-5">
     <?php include '../alerts/alerts.tpl.php'; ?>
-
 <div class="row">
     <div class="col s3 fixed white height-full no-padding">
         <div class="logo sidebar_header">
         </div>
         <ul class="collapsible" data-collapsible="accordion">
             <li>
-                <div class="collapsible-header"><i class="material-icons">settings_applications</i>configuracion de pagina</div>
+                <div class="collapsible-header"><i class="material-icons">settings_applications</i>Configuracion de pagina</div>
                 <div class="collapsible-body">
                     <div class="collection">
-                        <a href="#!" class="collection-item">Visión - Misión</a>
-                        <a href="#!" class="collection-item">Nuestra empresa</a>
-                        <a href="#!" class="collection-item">Slide</a>
-                        <a href="#!" class="collection-item">Contacto</a>
+                        <?php route('admin', 'Visión - Misión' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/enterprise', 'Nuestra empresa', null, ['class' => 'collection-item']); ?>
+                        <?php route('admin/slide', 'Slide', null, ['class' => 'collection-item']); ?>
+                        <?php route('admin/contact', 'Contacto',null, ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>
@@ -33,8 +32,8 @@
                 <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Usuarios</div>
                 <div class="collapsible-body">
                     <div class="collection">
-                        <a href="#!" class="collection-item">Nuevo</a>
-                        <a href="#!" class="collection-item">Todos</a>
+                        <?php route('admin/newuser', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/users', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>
@@ -42,8 +41,8 @@
                 <div class="collapsible-header"><i class="material-icons">markunread_mailbox</i>Productos</div>
                 <div class="collapsible-body">
                     <div class="collection">
-                        <a href="#!" class="collection-item">Nuevo</a>
-                        <a href="#!" class="collection-item">Todos</a>
+                        <?php route('admin/newproduct', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/product', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>
@@ -51,8 +50,8 @@
                 <div class="collapsible-header"><i class="material-icons">swap_vertical_circle</i>Servicios</div>
                 <div class="collapsible-body">
                     <div class="collection">
-                        <a href="#!" class="collection-item">Nuevo</a>
-                        <a href="#!" class="collection-item">Todos</a>
+                        <?php route('admin/newservice', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/service', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>
