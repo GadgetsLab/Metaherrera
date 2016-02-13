@@ -16,6 +16,8 @@
 </head>
 <body>
     <!--<div class="container">-->
+<?php include '../alerts/alerts.tpl.php'; ?>
+
         <?php include $content; ?>
     </div>
     <?php script('js/jquery.min.js')?>

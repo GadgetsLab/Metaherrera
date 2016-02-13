@@ -10,9 +10,10 @@ Class WebController implements Controller
 		return view('website/home', compact('title'));		
 	}
 
-	public function ComoYoLeQuieraLlamar($ensayo)
+	public function Product()
 	{
-		echo "Esto es una ruta con parametro = ". $ensayo;
+		$title = "Productos";
+		return view('website/product', compact('title'))
 	}
 
 	public function Service($opc,$opc1)

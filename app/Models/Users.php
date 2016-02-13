@@ -28,7 +28,7 @@ class Users extends Model
 
         } else {
 
-            $prepare = $this->connection->prepare("UPDATE $this->table SET email = :email, name = :name, password = :password, rol = :rol WHERE id = :id");
+            $prepare = $this->connection->prepare("UPDATE $this->table SET email = :email, name = :name, password = md5(:password), rol = :rol WHERE id = :id");
             $prepare->bindParam(":password", $password, \PDO::PARAM_INT);
         }
         $prepare->bindParam(":email", $this->email, \PDO::PARAM_STR);

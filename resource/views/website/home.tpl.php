@@ -4,23 +4,27 @@
 	</section>
 
 	<nav class="blue-grey darken-1">
-		<ul class="ed-container">
-			<li class="ed-item movil-25"><a href="">Inicio</a></li>
-			<li class="ed-item movil-25"><a href="">Nosotros</a></li>
-			<li class="ed-item movil-25"><a href="">Productos</a></li>
-			<li class="ed-item movil-25"><a href="">Servicios</a></li>
+		<ul class="ed-container total">
+			<li class="ed-item movil-25 centrar"><a href="">Inicio</a></li>
+			<li class="ed-item movil-25 centrar"><a href="">Nosotros</a></li>
+			<li class="ed-item movil-25 centrar"><a href="<?php route('')  ?>">Productos</a></li>
+			<li class="ed-item movil-25 centrar"><a href="">Servicios</a></li>
 		</ul>
 	</nav>
 
 </header>
 <section id="slider">
-	ZONA DE SLIDE
+	<div class="ed-container">
+		<div class="ed-item">
+			ZONA DE SLIDE
+		</div>
+	</div>
 </section>
 
 <section id="We">
 	<div class="ed-container">
 		<h2 class="centrar">Nosotros</h2>
-		<div class="ed-item total">
+		<div class="ed-item">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero assumenda, tempore sequi, ducimus quod quasi! Accusamus saepe magnam quidem tempore ipsam voluptatibus. Minima officia voluptatibus maiores quasi natus tenetur. Iure.</p>
 		</div>
 	</div>

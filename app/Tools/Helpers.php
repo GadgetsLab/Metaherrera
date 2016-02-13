@@ -87,7 +87,7 @@ function getFlashMessage($name)
  */
 function printFlashMessage($name, $type = 'news')
 {
-    $chip = "<div class='chip ". $type. "'>" . $_SESSION[$name] . "<i class='material-icons'>close</i></div>";
+    $chip = "<div class='center-align chip ". $type. "' style='width:100%;'>" . $_SESSION[$name] . "<i class='material-icons'>close</i></div>";
     echo $chip;
     unset($_SESSION[$name]);
 }
