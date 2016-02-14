@@ -1,3 +1,14 @@
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Roboto', sans-serif !important;
+    color:#757575;
+}
+p, a, span, input, button, nav
+{
+    font-family: 'Open Sans', sans-serif !important;
+     color:#757575;
+}
+
 .total{
     width: 100%;
 }

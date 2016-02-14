@@ -1,18 +1,4 @@
-<header>
-	<section id="logo">
-		<img class="total" src="http://lorempixel.com/300/90/nature">	
-	</section>
 
-	<nav class="blue-grey darken-1">
-		<ul class="ed-container total">
-			<li class="ed-item movil-25 centrar"><a href="">Inicio</a></li>
-			<li class="ed-item movil-25 centrar"><a href="">Nosotros</a></li>
-			<li class="ed-item movil-25 centrar"><a href="<?php route('')  ?>">Productos</a></li>
-			<li class="ed-item movil-25 centrar"><a href="">Servicios</a></li>
-		</ul>
-	</nav>
-
-</header>
 <section id="slider">
 	<div class="ed-container">
 		<div class="ed-item">
@@ -24,17 +10,17 @@
 <section id="We">
 	<div class="ed-container">
 		<h2 class="centrar">Nosotros</h2>
-		<div class="ed-item">
+		<div class="ed-item total">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero assumenda, tempore sequi, ducimus quod quasi! Accusamus saepe magnam quidem tempore ipsam voluptatibus. Minima officia voluptatibus maiores quasi natus tenetur. Iure.</p>
 		</div>
 	</div>
 </section>
 
 
-<section id="Products" class="blue-grey -2">
+<section id="Products" class="grey lighten-4">
 	<h2 class="centrar">Productos</h2>
-	<div class="ed-container">	
-		<div class="ed-item base-20 product__item">
+	<div class="ed-container center-text">	
+		<div class="ed-item base-100 tablet-50 web-25 product__item">
 			<img class="product__item__img" src="http://lorempixel.com/250/160/transport">
 			<h3>Producto 1</h3>
 			<p>
@@ -42,7 +28,7 @@
 			</p>
 		</div>
 
-		<div class="ed-item base-20 product__item">	
+		<div class="ed-item base-100 tablet-50 web-25 product__item">	
 			<img src="http://lorempixel.com/250/160/sports">
 			<h3>Producto 2</h3>	
 			<p>
@@ -50,7 +36,7 @@
 			</p>
 		</div>
 
-		<div class="ed-item base-20 product__item">	
+		<div class="ed-item base-100 tablet-50 web-25 product__item">	
 			<img src="http://lorempixel.com/250/160/food">	
 			<h3>Producto 3</h3>
 			<p>
@@ -58,14 +44,13 @@
 			</p>
 		</div>
 
-		<div class="ed-item base-20 product__item">
+		<div class="ed-item base-100 tablet-50 web-25 product__item">
 			<img src="http://lorempixel.com/250/160/city">	
 			<h3>Producto 4</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, dignissimos hic amet cupiditate impedit quia in praesentium, nostrum voluptates magni esse officiis recusandae qui eos asperiores, aliquam explicabo voluptatum. Totam!
 			</p>
 		</div>
-		<div class="clear"></div>
 	</div>
 </section>
 
@@ -73,7 +58,7 @@
 <section id="Services">
 	<h2 class="centrar">Servicios</h2>
 	<div class="ed-container">	
-		<div class="ed-item base-25 service__item">
+		<div class="ed-item base-100 tablet-1-3 service__item center-text">
 			<img class="service__item__img" src="http://lorempixel.com/250/160/people">
 			<h3 class="centrar">Servicio 1</h3>
 			<p>
@@ -81,7 +66,7 @@
 			</p>
 		</div>
 
-		<div class="ed-item base-25 service__item">
+		<div class="ed-item base-100 tablet-1-3 service__item center-text">
 			<img src="http://lorempixel.com/250/160/business">
 			<h3 class="centrar">Servicio 2</h3>
 			<p>
@@ -89,7 +74,7 @@
 			</p>	
 		</div>
 
-		<div class="ed-item base-25 service__item">
+		<div class="ed-item base-100 tablet-1-3 service__item center-text">
 			<img src="http://lorempixel.com/250/160/abstrac">	
 			<h3 class="centrar">Servicio 3</h3>
 			<p>
@@ -99,12 +84,3 @@
 		<div class="clear"></div>
 	</div>
 </section>
-
-<footer class="page-footer blue-grey darken-3 letter-white">
-	Contactenos <br>	
-	correo: correo@hotmail.com <br>
-	tel: 555-444-321
-	<div class="footer-copyright blue-grey darken-4">
-		Copyright 2016 metaherrera|Todos los derechos reservados|Hecho por: GadgetsLab
-	</div>
-</footer>

@@ -6,14 +6,20 @@ Class WebController implements Controller
 {
 	public function Index()
 	{
-		$title="Home";
+		$title = "Home";
 		return view('website/home', compact('title'));		
+	}
+
+	public function About()
+	{
+		$title = "Nosotros";
+		return view('website/about', compact("title"));
 	}
 
 	public function Product()
 	{
 		$title = "Productos";
-		return view('website/product', compact('title'))
+		return view('website/product', compact('title'));
 	}
 
 	public function Service($opc,$opc1)
