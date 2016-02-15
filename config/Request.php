@@ -16,7 +16,7 @@ class Request
             $route = explode('/', $route);
             $route = array_filter($route);
             if($route[0] == 'index.php'){
-                $this->controller = 'Base';
+                $this->controller = 'Web';
             }else{
                 $this->controller = ucfirst(strtolower(array_shift($route)));
             }
@@ -26,7 +26,7 @@ class Request
             }
             $this->parameters = $route;
         }else{
-            $this->controller = 'Base';
+            $this->controller = 'Web';
             $this->method = 'Index';
         }
     }

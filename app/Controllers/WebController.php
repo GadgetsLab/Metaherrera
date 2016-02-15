@@ -13,7 +13,7 @@ Class WebController implements Controller
 	public function Product()
 	{
 		$title = "Productos";
-		return view('website/product', compact('title'))
+		return view('website/product', compact('title'));
 	}
 
 	public function Service($opc,$opc1)
