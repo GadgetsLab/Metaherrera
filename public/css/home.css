@@ -1,10 +1,70 @@
-ul
-{
-	padding-top:1.5em;
+@media only screen and (min-width: 767px) {
+	#navigation
+	{
+		position: relative !important;
+		left: inherit;
+		top: initial;
+	}
+	.nav__item
+	{
+		display: flex !important;
+		margin: 0 auto;
+		width: 60% !important;
+	}
+	.nav__item li
+	{
+		border-bottom: 0 !important; 
+		flex: auto;
+	}
 }
-.bordear
+#logo
 {
-	border: 1px solid;
+	text-align: center;
+	padding: 2em;
+}
+.none
+{
+	display: none !important;
+}
+.margin-bottom
+{
+	margin-bottom: 1em;
+}
+.menu__movil
+{
+	cursor: pointer;
+	display: block;
+}
+#navigation
+{
+	display: table !important;
+	height: auto !important;
+	left: 0;
+	top: 0;
+	position: fixed;
+	z-index: 100;
+
+}
+.nav__item
+{
+	display: none;
+	width: 100%;
+}
+.nav__item li
+{
+	border-bottom: 1px solid #ccc;
+	display: block;
+	line-height: 3em;
+	width: 100%; 
+}
+.nav__item li:last-child
+{
+	border-bottom: none;
+}
+.nav__item li a
+{
+	display: block;
+	text-align: center;
 }
 .centrar
 {
@@ -18,42 +78,40 @@ ul
 {
 	color:#fff;
 }
-#Products
+#Products, #Services,#We, #Slide
 {
-	color: #fff;
-	padding: 20px 0;
-	height: 600px;
+	margin: 1em 0;
+	padding: 1em 0; 
+	
 }
-
-.product__item
-{
-	height: 400px;
-	/*float: left;*/
-	margin-left: 2em;
-	width: 260px;
-}
-#Services
-{
-	height: 500px;
-}
-#Services > h2 h3
-{
-	text-align: center;
-}
-.service__item
-{
-	height: 400px;
-	margin-left: 2em;
-	width: 280px;
-}
-#We
-{
-	 
-	margin: 5em 35%;
-
-}
-.we__description
+ p
 {
 	
-	width: 450px;
+	text-align: justify;
+}
+#Products
+{
+	color: #757575;
+}
+/*
+Productos
+----------------------------------------------------------------------------------------*/
+#categories 
+{
+
+}
+#products img
+{
+	width: 100%;
+}
+.margin-vertic
+{
+	margin: 1em auto;
+}
+
+/*Nosotros
+--------------------------------------------------------------------*/
+.indicator
+{
+	background-color: #0d47a1 !important;
 }
