@@ -67,13 +67,20 @@ abstract class Model extends Connection
     public function where($sql){
         $data = $this->connection->query("SELECT * FROM $this->table WHERE $sql");
         if($data->rowCount() > 1){
-            $data = $data->fecthAll(\PDO::FETCH_OBJ);
+            $data = $data->fetchAll(\PDO::FETCH_OBJ);
         }elseif($data->rowCount() == 1){
             $data = $data->fetch(\PDO::FETCH_OBJ);
         }else{
             return false;
         }
         return $data;
+    }
+    public function upOrdown($id, $opcion){
+        if($opcion == 1){
+            $data = $this->connection->query("UPDATE $this->table SET estado = 1 WHERE id = $id");
+        }else{
+            $data = $this->connection->query("UPDATE $this->table SET estado = 0 WHERE id = $id");
+        }
     }
 
 }

@@ -49,5 +49,10 @@ p, a, span, input, button, nav
     box-shadow: none !important;
     margin: 0 !important;
 }
-
+.page-footer p{
+    display: block;
+    width: 100%;
+    margin: 0 0 .5em 0 !important;
+    color: rgba(255,255,255,0.8);
+}
 
