@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Models\Platform;
 use App\Models\Sliders;
 use App\Models\Users;
+use App\Models\Products;
 use App\Filters\Auth;
 
 class AdminController implements Controller
@@ -13,7 +14,9 @@ class AdminController implements Controller
     private $model;
     public function index(){
         if(self::isLogin()){
-            return view('admin/home', '', 'baseAdmin');
+            $about = new Platform();
+            $new = $about->all();
+            return view('admin/home', compact('new'), 'baseAdmin');
         }
         return view('admin/login', '', 'noBase');
     }
@@ -30,7 +33,9 @@ class AdminController implements Controller
     }
     public function Enterprise(){
         if(self::isLogin()){
-            return view('admin/website/empresa', '' ,'baseAdmin');
+             $this->model = new Platform();
+            $about = $this->model->all();
+            return view('admin/website/empresa', compact('about'),'baseAdmin');
         }
         return redirect('admin');
     }
@@ -62,9 +67,9 @@ class AdminController implements Controller
         return redirect('admin');
     }
 
-    public function newProduct(){
+    public function Product(){
         if(self::isLogin()){
-            return view('admin/products/new', '', 'baseAdmin');
+            return view('admin/products/PRO', '', 'baseAdmin');
         }
         return redirect('admin');
     }
@@ -77,6 +82,42 @@ class AdminController implements Controller
     public function Logout(){
         Auth::Logout();
         return redirect('admin');
+    }
+
+    public function newProduct($id)
+    {
+        if($_POST)
+        {
+            $request = (object) $_POST;
+            $imagen = (object) $_FILES;
+            if (isset($id))
+            {
+                $produc = new Products();
+                $product->update($request->nombre, $request->descripcion); 
+                return redirect('admin/product');           
+            }
+            else
+            {
+                $dir_file = '../resource/images/products/';
+                $name_image = $imagen->imagen['name'];
+               if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_image))
+               {
+                    $product = new Products();
+                    $product->create($request->nombre, $name_image, $request->descripcion);
+                    return redirect('admin/newproduct','','baseAdmin');
+                }
+             }               
+        }
+        elseif(isset($id))
+        {
+            $product = new Products();
+            $product = $product->find($id);
+            return view('admin/product/update', compact('product'), 'baseAdmin');
+        }
+        else
+        {
+            return view('admin/products/new', '', 'baseAdmin');
+        }   
     }
 
     public  function Slide(){
@@ -129,6 +170,7 @@ class AdminController implements Controller
         $about = new Platform();
         $about->create($request->title, $request->contenido, $request->option);
         newFlashMessage('test', $request->option . " Actualizada.");
-        return redirect('admin');
+        
+        //return redirect('admin');
     }
 }

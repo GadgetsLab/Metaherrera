@@ -17,8 +17,13 @@ abstract class Model extends Connection
      */
     public function all(){
         $result = $this->connection->query("SELECT * FROM $this->table");
-        $data = $result->fetchAll(\PDO::FETCH_OBJ);
-        return $data;
+        if($result->rowCount() > 1){
+            $result = $result->fetchAll(\PDO::FETCH_OBJ);
+        }else{
+            $result = $result->fetch(\PDO::FETCH_OBJ);
+        }
+        
+        return $result;
     }
 
     /**

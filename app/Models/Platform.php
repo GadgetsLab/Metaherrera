@@ -14,4 +14,5 @@ class Platform extends Model
         $prepare->bindParam(":contenido", $contenido, \PDO::PARAM_STR);
         $prepare->execute();
     }
+
 }

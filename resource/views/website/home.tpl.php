@@ -1,6 +1,6 @@
 
 	<div class="slider">
-		<ul class="slides">
+			<ul class="slides">
 			<?php foreach($sliders as $slide ): ?>
 			<li>
 				<img src="<?php echo BASE_URL ?>resource/images/slide/<?php echo $slide->imagen ?>"> <!-- random image -->
@@ -15,9 +15,9 @@
 
 <section id="We">
 	<div class="ed-container">
-		<h2 class="centrar">Nosotros</h2>
-		<div class="ed-item total">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero assumenda, tempore sequi, ducimus quod quasi! Accusamus saepe magnam quidem tempore ipsam voluptatibus. Minima officia voluptatibus maiores quasi natus tenetur. Iure.</p>
+		<h2 class="centrar ed-item base-100"><?php echo $about->titulo_nosotros ?></h2>
+		<div class="ed-item base-100 tablet-50 centro">
+			<p><?php echo $about->nosotros ?></p>
 		</div>
 	</div>
 </section>

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-
+use App\Models\Model;
 class Products extends Model
 {
 
-    protected $table = 'services';
+    protected $table = 'products';
 
     public function create($titulo, $imagen, $descripcion)
     {
