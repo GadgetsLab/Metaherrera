@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
+use App\Models\Platform;
+use App\Models\Sliders;
 use App\Models\Users;
 use App\Filters\Auth;
 
@@ -13,7 +15,7 @@ class AdminController implements Controller
         if(self::isLogin()){
             return view('admin/home', '', 'baseAdmin');
         }
-        return view('admin/login');
+        return view('admin/login', '', 'noBase');
     }
 
     public function Login(){
@@ -74,6 +76,59 @@ class AdminController implements Controller
     }
     public function Logout(){
         Auth::Logout();
+        return redirect('admin');
+    }
+
+    public  function Slide(){
+        $slide = new Sliders();
+        $sliders = $slide->all();
+        return view('admin/slide/home', compact('sliders'), 'baseAdmin');
+    }
+
+    public function newSlide($id){
+        if($_POST){
+            $request = (object) $_POST;
+            $imagen = (object) $_FILES;
+            if(isset($id)){
+                $slide = new Sliders();
+                $slide->update($request->title, $request->subtitle, $id);
+                return redirect('admin/slide');
+            }else{
+                $dir_upload = '../resource/images/slide/';
+                $name_real = $imagen->imagen['name'];
+                if(move_uploaded_file($imagen->imagen['tmp_name'], $dir_upload . $name_real)){
+                    $slide = new Sliders();
+                    $slide->create($name_real, $request->title, $request->subtitle);
+                    return redirect('admin/slide');
+                }
+                return redirect('admin/newslide');
+            }
+        }elseif(isset($id)){
+            $slide = new Sliders();
+            $slide = $slide->find($id);
+            return view('admin/slide/update',compact('slide'),'baseAdmin');
+
+        }else{
+            return view('admin/slide/create','','baseAdmin');
+        }
+
+    }
+    public function deleteSlide($id){
+        $slide = new Sliders();
+        $slide->destroy($id);
+        return redirect('admin/slide');
+    }
+
+    public function slideupordown($id, $opc){
+        $slide = new Sliders();
+        $slide->upOrdown($id, $opc);
+        return redirect('admin/slide');
+    }
+    public function About(){
+        $request = (object) $_POST;
+        $about = new Platform();
+        $about->create($request->title, $request->contenido, $request->option);
+        newFlashMessage('test', $request->option . " Actualizada.");
         return redirect('admin');
     }
 }

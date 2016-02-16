@@ -37,10 +37,10 @@
 
         <?php include $content; ?>
 
-<footer class="page-footer blue-grey darken-3 letter-white">
+<footer class="page-footer blue-grey darken-3 white-text letter-white">
     <div class="ed-container">
-        <p>Contactenos</p> 
-        <p>Correo: correo@hotmail.com</p> 
+        <p>Contactenos</p><br />
+        <p>Correo: correo@hotmail.com</p><br />
         <p>Tel: 555-444-321</p>
 
     </div>

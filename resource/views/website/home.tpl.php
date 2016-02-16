@@ -1,11 +1,17 @@
 
-<section id="slider">
-	<div class="ed-container">
-		<div class="ed-item">
-			ZONA DE SLIDE
-		</div>
+	<div class="slider">
+		<ul class="slides">
+			<?php foreach($sliders as $slide ): ?>
+			<li>
+				<img src="<?php echo BASE_URL ?>resource/images/slide/<?php echo $slide->imagen ?>"> <!-- random image -->
+				<div class="caption center-align">
+					<h3><?php echo $slide->titulo ?></h3>
+					<h5 class="light grey-text text-lighten-3"><?php echo $slide->subtitulo ?></h5>
+				</div>
+			</li>
+			<?php endforeach ?>
+		</ul>
 	</div>
-</section>
 
 <section id="We">
 	<div class="ed-container">

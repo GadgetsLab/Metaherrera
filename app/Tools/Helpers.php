@@ -29,7 +29,7 @@ function redirect($route)
  */
 function style($route)
 {
-    echo "<link rel='stylesheet' href='" . BASE_URL . "/public/" . $route . "'>";
+    echo "<link rel='stylesheet' href='" . BASE_URL . "public/" . $route . "'>";
 }
 
 /**
@@ -37,7 +37,7 @@ function style($route)
  */
 function script($route)
 {
-    echo "<script src='" . BASE_URL . "/public/" . $route . "'></script>";
+    echo "<script src='" . BASE_URL . "public/" . $route . "'></script>";
 }
 
 /**

@@ -11,7 +11,7 @@
 
 </head>
 <body class="blue-grey lighten-5">
-    <?php include '../alerts/alerts.tpl.php'; ?>
+    <?php include('../alerts/alerts.tpl.php'); ?>
 <div class="row">
     <div class="col s3 fixed white height-full no-padding">
         <div class="logo sidebar_header">
@@ -52,6 +52,14 @@
                     <div class="collection">
                         <?php route('admin/newservice', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
                         <?php route('admin/service', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">view_list</i>Lista de contactos</div>
+                <div class="collapsible-body">
+                    <div class="collection">
+                        <?php route('admin/slides', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>
