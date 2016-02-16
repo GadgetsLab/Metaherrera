@@ -11,6 +11,7 @@
     <?php style('css/materialize.min.css'); ?>
     <?php style('css/ed-grid.css'); ?>
     <?php style('css/home.css'); ?>
+    <?php style('css/contact.css') ?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -27,7 +28,7 @@
                 <li class="centrar"><?php route('web','Inicio'); ?></li>
                 <li class="centrar"><?php route('web/about','Nosotros'); ?></li>
                 <li class="centrar"><?php route('web/product','Productos'); ?></li>
-                <li class="centrar"><?php route('web','Contacto'); ?></li>
+                <li class="centrar"><?php route('web/contact','Contacto'); ?></li>
             </ul>
     </nav>
 

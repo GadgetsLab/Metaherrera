@@ -26,6 +26,17 @@ Class WebController implements Controller
 	{
 		return view('website/service', compact("opc","opc1"));
 	}
+
+	public function Contact()
+	{
+		$title = "Contactenos";
+		return view('website/contact', compact('title'));
+	}
+	public function notification($request)
+	{
+		$confirmed = correo($request);
+		return view('website/contact',compact('confirmed'));
+	}
 } 
 
  

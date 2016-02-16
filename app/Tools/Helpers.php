@@ -1,4 +1,6 @@
 <?php
+require('phpmailer/PHPMailerAutoload.php');
+
 /**
  *function view, renders a view and the layout select
  * @param string $template
@@ -90,5 +92,25 @@ function printFlashMessage($name, $type = 'news')
     $chip = "<div class='center-align chip ". $type. "' style='width:100%;'>" . $_SESSION[$name] . "<i class='material-icons'>close</i></div>";
     echo $chip;
     unset($_SESSION[$name]);
+}
+
+function correo($request)
+{
+$mail = new PHPMailer;
+$mail->setFrom($request->correo, $request->nombre); //quien lo envia. Remitente
+$mail->addAddress('reickchozo@gmail.com'); //A quien llega. El receptor
+$mail->Subject = $request->asunto; //Aqui va el asunto del mensaje
+$mail->isHtml(true);
+$body = "<h3>Contacto a MetaHerrera</h3>
+        <p><b>Nombre: </b>$request->nombre</p>
+        <p><b>Correo: </b>$request->correo</p>
+        <p><b>Asunto: </b>$request->asunto</p> 
+        <p><b>Mensaje: </b>$request->mensaje</p>
+        <p><b>Fecha: </b>".date('Y-m-d')."</p>";
+$mail->Body = $body;
+if($mail->send())
+{
+    echo "Funciono";
+}          
 }
 
