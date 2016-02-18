@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col s12">
-        <h5>Todos las Categorias</h5>
+        <h5>Todos los Productos</h5>
         <table class="striped white">
             <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Descripcion</th>
+                <th>Categoria</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
             </tr>
@@ -15,9 +16,16 @@
                 <tr>
                     <td><?php echo $product->nombre ?></td>
                     <td><?php echo $product->descripcion ?></td>
+                    <td>
+                        <?php
+                            $category = new \App\Models\Categories();
+                            $category_name = $category->find($product->id_cat);
+                            echo $category_name->nombre;
+                        ?>
+                    </td>
                     <td> <img class="materialboxed" width="150" height="100" src="<?php echo BASE_URL ?>resource/images/products/<?php echo $product->imagen ?>" /></td>
-                    <td><a class="btn-floating waves-effect waves-light blue" href="newcategory/<?php echo $category->id ?>"><i class="material-icons">settings_input_component</i></a>
-                        <a class="btn-floating waves-effect waves-light red" href="deletecategory/<?php echo $category->id ?>"><i class="material-icons">delete</i></a>
+                    <td><a class="btn-floating waves-effect waves-light blue" href="newproduct/<?php echo $product->id ?>"><i class="material-icons">settings_input_component</i></a>
+                        <a class="btn-floating waves-effect waves-light red" href="deletecategory/<?php echo $product->id ?>"><i class="material-icons">delete</i></a>
                     </td>                    
                 </tr>
             <?php endforeach ?>

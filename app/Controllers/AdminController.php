@@ -34,7 +34,7 @@ class AdminController implements Controller
     }
     public function Enterprise(){
         if(self::isLogin()){
-             $this->model = new Platform();
+            $this->model = new Platform();
             $about = $this->model->all();
             return view('admin/website/empresa', compact('about'),'baseAdmin');
         }
@@ -70,7 +70,9 @@ class AdminController implements Controller
 
     public function Product(){
         if(self::isLogin()){
-            return view('admin/products/home', '', 'baseAdmin');
+            $products = new Products();
+            $products = $products->all();
+            return view('admin/products/home', compact('products'), 'baseAdmin');
         }
         return redirect('admin');
     }
@@ -83,7 +85,7 @@ class AdminController implements Controller
             $categories = $categories->all();
             return view('admin/categories/home', compact('categories'), 'baseAdmin');
         }
-       return redirect('admin'); 
+        return redirect('admin');
     }
 
     public function newService(){
@@ -99,6 +101,8 @@ class AdminController implements Controller
 
     public function newProduct($id)
     {
+        $categories = new Categories();
+        $categories = $categories->all();
         if($_POST)
         {
             $request = (object) $_POST;
@@ -106,63 +110,60 @@ class AdminController implements Controller
             $product = new Products();
             if (isset($id))
             {
-                $produc = new Products();
-                $product->update($request->nombre, $request->descripcion); 
-                return redirect('admin/product');           
+                $product->update($id, $request->nombre, $request->descripcion, $request->id_cat);
+                return redirect('admin/product');
             }
             else
             {
                 $dir_file = '../resource/images/products/';
-                $name_image = $imagen->imagen['name'];
-               if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_image))
-               {
-                    $product->create($request->nombre, $name_image, $request->descripcion);
-                    echo "funciono";
-                    //return redirect('admin/newproduct','','baseAdmin');
+                $name_real = $imagen->imagen['name'];;
+                if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_real))
+                {
+                    $product->create($request->nombre, $name_real, $request->descripcion, $request->id_cat);
+                    return redirect('admin/product');
                 }
-                echo "no funcionó";
-             }               
-        }
-        elseif(isset($id))
+                return redirect('admin/product');
+            }
+        }elseif(isset($id))
         {
             $product = new Products();
             $product = $product->find($id);
-            return view('admin/product/update', compact('product'), 'baseAdmin');
+            return view('admin/products/update', compact('product','categories'), 'baseAdmin');
         }
         else
         {
-            return view('admin/products/new', '', 'baseAdmin');
-        }   
+            return view('admin/products/create', compact('categories'), 'baseAdmin');
+        }
     }
 
 
-   public function newCategory($id)
+    public function newCategory($id)
     {
-       if($_POST)
-       {
-         $request = (object) $_POST;
-         $category = new Categories(); 
-         if(isset($id))
-         {
-            $category->update($id, $request->nombre, $request->descripcion);
-            return redirect('admin/category');
-         }
-         else
-         {
-            $category->create($request->nombre, $request->descripcion);
-            return redirect('admin/category/');
-         }
-       }    
+        if($_POST)
+        {
+            $request = (object) $_POST;
+            $category = new Categories();
+            if(isset($id))
+            {
+                $category->update($id, $request->nombre, $request->descripcion);
+                return redirect('admin/category');
+            }
+            else
+            {
+                $category->create($request->nombre, $request->descripcion);
+                return redirect('admin/category/');
+            }
+        }
         elseif(isset($id))
-         {
+        {
             $categories = new Categories();
             $category = $categories->find($id);
-            return view('admin/categories/update', compact('category'), 'baseAdmin');               
-         }
-         else
-         {
+            return view('admin/categories/update', compact('category'), 'baseAdmin');
+        }
+        else
+        {
             return view('admin/categories/create', '', 'baseAdmin');
-         }
+        }
     }
 
     public  function Slide(){
@@ -222,7 +223,7 @@ class AdminController implements Controller
         $about = new Platform();
         $about->create($request->title, $request->contenido, $request->option);
         newFlashMessage('test', $request->option . " Actualizada.");
-        
+
         //return redirect('admin');
     }
 
