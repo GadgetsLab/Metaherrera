@@ -29,7 +29,7 @@ Class WebController implements Controller
 		return view('website/product/home', compact('title'));
 	}
 
-	public function newProduct($id)
+	/*public function newProduct($id)
     {
         if($_POST)
         {
@@ -63,7 +63,7 @@ Class WebController implements Controller
         {
             return view('admin/product/create', '', 'baseAdmin');
         }   
-    }
+    }*/
 
 	public function Service($opc,$opc1)
 	{
@@ -81,6 +81,11 @@ Class WebController implements Controller
 		$request = (object)$_POST;
 		$confirmed = correo($request);
 		return view('website/contact',compact('confirmed'));
+	}
+
+	public function __destruct()
+	{
+		
 	}
 } 
 

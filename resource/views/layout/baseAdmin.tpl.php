@@ -47,6 +47,15 @@
                 </div>
             </li>
             <li>
+                <div class="collapsible-header"><i class="material-icons">toc</i>Categorias</div>
+                <div class="collapsible-body">
+                    <div class="collection">
+                        <?php route('admin/newcategory', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/category', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
+                    </div>
+                </div>
+            </li>            
+            <li>
                 <div class="collapsible-header"><i class="material-icons">swap_vertical_circle</i>Servicios</div>
                 <div class="collapsible-body">
                     <div class="collection">

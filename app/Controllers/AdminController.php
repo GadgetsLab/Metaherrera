@@ -7,6 +7,7 @@ use App\Models\Platform;
 use App\Models\Sliders;
 use App\Models\Users;
 use App\Models\Products;
+use App\Models\Categories;
 use App\Filters\Auth;
 
 class AdminController implements Controller
@@ -69,10 +70,22 @@ class AdminController implements Controller
 
     public function Product(){
         if(self::isLogin()){
-            return view('admin/products/PRO', '', 'baseAdmin');
+            return view('admin/products/home', '', 'baseAdmin');
         }
         return redirect('admin');
     }
+
+    public function Category()
+    {
+        if(self::isLogin())
+        {
+            $categories= new Categories();
+            $categories = $categories->all();
+            return view('admin/categories/home', compact('categories'), 'baseAdmin');
+        }
+       return redirect('admin'); 
+    }
+
     public function newService(){
         if(self::isLogin()){
             return view('admin/service/new', '', 'baseAdmin');
@@ -90,6 +103,7 @@ class AdminController implements Controller
         {
             $request = (object) $_POST;
             $imagen = (object) $_FILES;
+            $product = new Products();
             if (isset($id))
             {
                 $produc = new Products();
@@ -102,10 +116,11 @@ class AdminController implements Controller
                 $name_image = $imagen->imagen['name'];
                if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_image))
                {
-                    $product = new Products();
                     $product->create($request->nombre, $name_image, $request->descripcion);
-                    return redirect('admin/newproduct','','baseAdmin');
+                    echo "funciono";
+                    //return redirect('admin/newproduct','','baseAdmin');
                 }
+                echo "no funcionó";
              }               
         }
         elseif(isset($id))
@@ -118,6 +133,36 @@ class AdminController implements Controller
         {
             return view('admin/products/new', '', 'baseAdmin');
         }   
+    }
+
+
+   public function newCategory($id)
+    {
+       if($_POST)
+       {
+         $request = (object) $_POST;
+         $category = new Categories(); 
+         if(isset($id))
+         {
+            $category->update($id, $request->nombre, $request->descripcion);
+            return redirect('admin/category');
+         }
+         else
+         {
+            $category->create($request->nombre, $request->descripcion);
+            return redirect('admin/category/');
+         }
+       }    
+        elseif(isset($id))
+         {
+            $categories = new Categories();
+            $category = $categories->find($id);
+            return view('admin/categories/update', compact('category'), 'baseAdmin');               
+         }
+         else
+         {
+            return view('admin/categories/create', '', 'baseAdmin');
+         }
     }
 
     public  function Slide(){
@@ -160,6 +205,13 @@ class AdminController implements Controller
         return redirect('admin/slide');
     }
 
+    public function deleteCategory($id)
+    {
+        $category = new Categories();
+        $category->destroy($id);
+        return redirect('admin/category');
+    }
+
     public function slideupordown($id, $opc){
         $slide = new Sliders();
         $slide->upOrdown($id, $opc);
@@ -172,5 +224,10 @@ class AdminController implements Controller
         newFlashMessage('test', $request->option . " Actualizada.");
         
         //return redirect('admin');
+    }
+
+    public function __destruct()
+    {
+
     }
 }
