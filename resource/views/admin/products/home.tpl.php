@@ -4,6 +4,7 @@
         <table class="striped white">
             <thead>
             <tr>
+                <th>Estado</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Categoria</th>
@@ -14,6 +15,11 @@
             <tbody>
             <?php foreach($products as $product): ?>
                 <tr>
+                    <td><?php if($product->estado == 1){ ?>
+                            <a class="btn-floating waves-effect waves-light green" href="productupordown/<?php echo $product->id ?>/2"><i class="material-icons">thumb_up</i></a>
+                        <?php }else{ ?>
+                            <a class="btn-floating waves-effect waves-light red" href="productupordown/<?php echo $product->id ?>/1"><i class="material-icons">thumb_down</i></a>
+                        <?php } ?></td>
                     <td><?php echo $product->nombre ?></td>
                     <td><?php echo $product->descripcion ?></td>
                     <td>

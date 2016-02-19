@@ -8,6 +8,7 @@ use App\Models\Sliders;
 use App\Models\Users;
 use App\Models\Products;
 use App\Models\Categories;
+use App\Models\Services;
 use App\Filters\Auth;
 
 class AdminController implements Controller
@@ -88,9 +89,11 @@ class AdminController implements Controller
         return redirect('admin');
     }
 
-    public function newService(){
+    public function Service(){
         if(self::isLogin()){
-            return view('admin/service/new', '', 'baseAdmin');
+            $services = new Services();
+            $services = $services->all();
+            return view('admin/service/home', compact('services'), 'baseAdmin');
         }
         return redirect('admin');
     }
@@ -166,6 +169,41 @@ class AdminController implements Controller
         }
     }
 
+    public function newService($id)
+    {  
+        if($_POST)
+        {
+            $request = (object) $_POST;
+            $imagen = (object) $_FILES;
+            $service = new Services();
+            if (isset($id))
+            {
+                $service->update($id, $request->nombre, $request->descripcion);
+                return redirect('admin/service');
+            }
+            else
+            {
+                $dir_file = '../resource/images/services/';
+                $name_real = $imagen->imagen['name'];
+                if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_real))
+                {
+                    $service->create($request->nombre, $name_real, $request->descripcion);
+                    return redirect('admin/service');
+                }
+                return redirect('admin/service');
+            }
+        }elseif(isset($id))
+        {
+            $service = new Services();
+            $service = $service->find($id);
+            return view('admin/service/update', compact('service'), 'baseAdmin');
+        }
+        else
+        {
+            return view('admin/service/create','', 'baseAdmin');
+        }
+    }
+
     public  function Slide(){
         $slide = new Sliders();
         $sliders = $slide->all();
@@ -211,6 +249,20 @@ class AdminController implements Controller
         $category = new Categories();
         $category->destroy($id);
         return redirect('admin/category');
+    }
+
+    public function deleteService($id)
+    {
+        $service = new Services();
+        $service->destroy($id);
+        return redirect('admin/service');
+    }
+
+    public function productupordown($id, $opc)
+    {
+        $product = new Products();
+        $product->upOrdown($id,$opc);
+        return redirect('admin/product');
     }
 
     public function slideupordown($id, $opc){

@@ -7,7 +7,7 @@
             <label for="contenido">Contenido</label>
             <textarea name="contenido" class="editor" cols="30" rows="10" required><?php  echo $new->vision ?></textarea>
             <input type="hidden" name="option" value="vision">
-            <button class="btn" type="submit">Actualizar</button>
+            <button class="btn enviar" type="submit">Actualizar</button>
         </form>
     </div>
     <div class="col s6">
@@ -18,7 +18,7 @@
             <label for="contenido">Contenido</label>
             <textarea name="contenido" class="editor" cols="30" rows="10" required><?php echo $new->mision ?></textarea>
             <input type="hidden" name="option" value="mision">
-            <button class="btn">Actualizar</button>
+            <button class="btn enviar">Actualizar</button>
         </form>
     </div>
 </div>

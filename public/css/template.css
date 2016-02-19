@@ -8,6 +8,10 @@ p, a, span, input, button, nav
     font-family: 'Open Sans', sans-serif !important;
      color:#757575;
 }
+form input
+{
+    display: block;
+}
 
 .total{
     width: 100%;
@@ -17,6 +21,7 @@ p, a, span, input, button, nav
 }
 .news{
     background-color: #01579b !important;
+
 }
 .warning{
     background-color: #ff6f00 !important;
@@ -35,6 +40,11 @@ p, a, span, input, button, nav
 }
 .height-full{
     height: 100%;
+}
+.margin-top-20
+{
+    display: block;
+    margin-top: 20px !important;
 }
 .sidebar_header{
     height:90px;
