@@ -35,8 +35,7 @@
                 <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Usuarios</div>
                 <div class="collapsible-body">
                     <div class="collection">
-                        <?php route('admin/newuser', 'Nuevo' ,null , ['class' => 'collection-item']); ?>
-                        <?php route('admin/users', 'Listar todo' ,null , ['class' => 'collection-item']); ?>
+                        <?php route('admin/users/4', 'Editar' ,null , ['class' => 'collection-item']); ?>
                     </div>
                 </div>
             </li>

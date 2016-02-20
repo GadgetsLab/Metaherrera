@@ -31,7 +31,7 @@
                     </td>
                     <td> <img class="materialboxed" width="150" height="100" src="<?php echo BASE_URL ?>resource/images/products/<?php echo $product->imagen ?>" /></td>
                     <td><a class="btn-floating waves-effect waves-light blue" href="newproduct/<?php echo $product->id ?>"><i class="material-icons">settings_input_component</i></a>
-                        <a class="btn-floating waves-effect waves-light red" href="deletecategory/<?php echo $product->id ?>"><i class="material-icons">delete</i></a>
+                        <a class="btn-floating waves-effect waves-light red" href="deleteproduct/<?php echo $product->id ?>"><i class="material-icons">delete</i></a>
                     </td>                    
                 </tr>
             <?php endforeach ?>

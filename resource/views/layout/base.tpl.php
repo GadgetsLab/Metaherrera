@@ -57,13 +57,13 @@
     <div class="ed-container padding-3">
         <div class="ed-item tablet-50">
             <h4>METAHERRERA Ltda</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium praesentium sapiente tenetur vero. Accusamus, at debitis delectus, enim ex itaque mollitia nam natus nemo officia optio sequi, veniam veritatis vitae?</p>
+            <p><?php echo $contact->descripcion ?></p>
         </div>
         <div class="ed-item tablet-50 right-align">
             <h4>Contáctenos</h4>
-            <p class="right-align"><i class="tiny material-icons">room</i> AAAAAAAAAAAA</p>
-            <p class="right-align"><i class="tiny material-icons">phone</i> (574)555555555</p>
-            <p class="right-align"><i class="tiny material-icons">email</i> contacto@metaherrera.com</p>
+            <p class="right-align"><i class="tiny material-icons">room</i> <?php echo $contact->direccion ?></p>
+            <p class="right-align"><i class="tiny material-icons">phone</i> (574)<?php echo $contact->telefono ?></p>
+            <p class="right-align"><i class="tiny material-icons">email</i> <?php echo $contact->correo ?></p>
         </div>
     </div>
     <div class="footer-copyright grey darken-3">

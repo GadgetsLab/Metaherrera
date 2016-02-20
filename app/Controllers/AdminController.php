@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Platform;
 use App\Models\Sliders;
 use App\Models\Users;
@@ -44,13 +45,26 @@ class AdminController implements Controller
 
     public function Contact(){
         if(self::isLogin()){
-            return view('admin/website/contact', '', 'baseAdmin');
+            $contact = new Contact();
+            $contact = $contact->all();
+            return view('admin/website/contact', compact('contact'), 'baseAdmin');
         }
         return redirect('admin');
     }
-    public function newUser(){
+    public function newUser($id){
         if(self::isLogin()){
-            return view('admin/users/create', '', 'baseAdmin');
+            $this->model = new Users();
+            $request = (object)$_POST;
+            $this->model->email = $request->email;
+            $this->model->name = $request->name;
+            if ($request->password == "") {
+                newFlashMessage('test', 'Usuario actualizado.');
+                $this->model->update($id);
+                return redirect('admin/');
+            }
+            newFlashMessage('test', 'Usuario actualizado.');
+            $this->model->update($id, $request->password);
+            return redirect('admin/');
         }
         return redirect('admin');
     }
@@ -60,11 +74,11 @@ class AdminController implements Controller
         }
         return false;
     }
-    public function Users(){
+    public function Users($id){
         if(self::isLogin()){
             $this->model = new Users();
-            $users = $this->model->all();
-            return view('admin/users/home', compact('users'), 'baseAdmin');
+            $user = $this->model->find($id);
+            return view('admin/users/create', compact('user'), 'baseAdmin');
         }
         return redirect('admin');
     }
@@ -269,6 +283,14 @@ class AdminController implements Controller
 
         return redirect('admin/service');
     }
+    public function deleteProduct($id)
+    {
+        $service = new Products();
+        $service->destroy($id);
+        newFlashMessage('test', 'Producto eliminado');
+
+        return redirect('admin/products');
+    }
 
     public function productupordown($id, $opc)
     {
@@ -290,6 +312,13 @@ class AdminController implements Controller
         return redirect('admin');
     }
 
+    public function updateContact(){
+        $contact = new Contact();
+        $request = (object) $_POST;
+        $contact->create($request->direccion, $request->correo, $request->telefono, $request->descripcion);
+        newFlashMessage('test', 'Informacion de contacto actualizada.');
+        return redirect('admin/contact');
+    }
     public function __destruct()
     {
 

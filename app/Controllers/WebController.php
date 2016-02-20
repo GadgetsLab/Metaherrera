@@ -1,12 +1,22 @@
 <?php 
 namespace App\Controllers;
 use App\Controllers\Controller;
+use App\Models\Categories;
+use App\Models\Contact;
+use App\Models\Products;
 use App\Models\Services;
 use App\Models\Sliders;
 use App\Models\Platform;
 
 Class WebController implements Controller
 {
+	protected $contact;
+	public function __construct()
+	{
+		$this->contact = new Contact();
+		$this->contact = $this->contact->all();
+	}
+
 	public function Index()
 	{
 		$sliders = new Sliders();
@@ -16,8 +26,11 @@ Class WebController implements Controller
 		$title = "MetaHerrera";
 		$services = new Services();
 		$services = $services->all();
+		$products = new Products();
+		$products = $products->all();
 		$menu_active = 'inicio';
-		return view('website/home', compact('title','sliders','about','menu_active', 'services'));
+		$contact = $this->contact;
+		return view('website/home', compact('title','sliders','about','menu_active', 'services','products','contact'));
 	}
 
 	public function About()
@@ -26,16 +39,20 @@ Class WebController implements Controller
 		$about = new Platform();
 		$about = $about->all();
 		$menu_active = 'about';
-
-		return view('website/about', compact('title', 'about', 'menu_active'));
+		$contact = $this->contact;
+		return view('website/about', compact('title', 'about', 'menu_active','contact'));
 	}
 
 	public function Product()
 	{
 		$title = "Productos";
+		$products = new Products();
+		$products = $products->all();
+		$categories = new Categories();
+		$categories = $categories->all();
 		$menu_active = 'product';
-
-		return view('website/product', compact('title', 'menu_active'));
+		$contact = $this->contact;
+		return view('website/product', compact('title', 'menu_active','contact', 'products', 'categories'));
 	}
 
 	/*public function newProduct($id)
@@ -84,8 +101,8 @@ Class WebController implements Controller
 	{
 		$title = "Contactenos";
 		$menu_active = 'contact';
-
-		return view('website/contact', compact('title','menu_active'));
+		$contact = $this->contact;
+		return view('website/contact', compact('title','menu_active','contact'));
 	}
 	public function notification()
 	{

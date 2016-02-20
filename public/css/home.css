@@ -185,6 +185,14 @@ Productos
 footer h4, #Services h3 {
 	color: #9E9E9E !important;
 }
+.card-title{
+	width: 100%;
+	background: rgba(16, 10, 10, 0.64);
+}
+.card-action a{
+	text-decoration: underline;
+	color: #000 !important;
+}
 /*Nosotros
 --------------------------------------------------------------------*/
 .indicator
@@ -202,4 +210,8 @@ footer.page-footer{
 }
 .slider .indicators .indicator-item.active{
 	background-color: #444;
+}
+#Categories li{
+	padding: 1em 0;
+	border-bottom: 1px solid;
 }
