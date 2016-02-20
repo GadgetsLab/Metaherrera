@@ -21,13 +21,20 @@ class Auth extends Model
             $this->rol = $validate->rol;
             $_SESSION['name'] = $validate->username;
             $_SESSION['login'] = true;
+            $_SESSION['tiempo'] = time();
             return true;
         }
         return false;
     }
     public function isLogin()
     {
+
         if($this->login = true){
+            $vida_session = time() - $_SESSION['tiempo'];
+            global $inactivo;
+            if($inactivo > $vida_session){
+                return false;
+            }
             return true;
         }
         return false;

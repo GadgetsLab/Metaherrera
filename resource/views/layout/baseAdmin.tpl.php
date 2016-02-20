@@ -10,13 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
+<?php if(getFlashMessage('test')): ?>
+    <?php printFlashMessage('test'); ?>
+<?php endif ?>
 <body class="blue-grey lighten-5">
-    <?php include('../alerts/alerts.tpl.php'); ?>
 <div class="row">
     <div class="col s3 fixed white height-full no-padding">
         <div class="logo sidebar_header">
         </div>
         <ul class="collapsible" data-collapsible="accordion">
+
             <li>
                 <div class="collapsible-header"><i class="material-icons">settings_applications</i>Configuracion de pagina</div>
                 <div class="collapsible-body">

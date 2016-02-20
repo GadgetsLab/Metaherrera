@@ -1,9 +1,15 @@
+h2{
+	font-size: 3em;
+	font-weight: 200;
+}
 @media only screen and (min-width: 767px) {
 	#navigation
 	{
 		position: relative !important;
 		left: inherit;
 		top: initial;
+		border-top: 1px solid #9c9c9c;
+		border-bottom: 1px solid #9c9c9c;
 	}
 	.nav__item
 	{
@@ -17,10 +23,32 @@
 		flex: auto;
 	}
 }
+nav ul a:hover, nav ul a.active {
+	background-color: rgba(0,0,0,0.1);
+}
+.caption h3{
+	font-size: 3em;
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif !important;
+
+}
+.caption h5{
+	font-family: 'Roboto', sans-serif !important;
+	text-shadow: 2px 2px #000;
+	font-size: 1.5em;
+	font-weight: 300;
+}
 #logo
 {
 	text-align: center;
-	padding: 2em;
+	padding: 1em;
+	font-size: 3em;
+	text-transform: uppercase;
+
+}
+#logo a{
+	font-family: 'Six Caps', sans-serif !important;
+	font-size: 2em;
 }
 .none
 {
@@ -44,6 +72,16 @@
 	position: fixed;
 	z-index: 100;
 
+
+}
+.opaco{
+color: #fff;
+background-color: rgba(10,10,10,0.3);
+}
+.opaco p, .opaco h2{
+	color: #F1F1F1;
+	text-shadow: 1px 1px #000;
+
 }
 .nav__item
 {
@@ -54,7 +92,7 @@
 {
 	border-bottom: 1px solid #ccc;
 	display: block;
-	line-height: 3em;
+	line-height: 4em;
 	width: 100%; 
 }
 .nav__item li:last-child
@@ -65,7 +103,10 @@
 {
 	display: block;
 	text-align: center;
+	color: #757575;
+	text-transform: uppercase;
 }
+
 .centrar
 {
 	text-align: center;
@@ -78,20 +119,53 @@
 {
 	color:#fff;
 }
-#Products, #Services,#We, #Slide
+#We{
+	background-image: url(../images/bg2.jpg);
+	background-attachment: fixed;
+
+}
+#Products{
+	background-image: url(../images/bg-gray1.jpg);
+}
+#Services{
+	background-image: url(../images/black-bg.jpg);
+}
+.padding-3{
+	padding-bottom: 1em;
+}
+.page-footer p{
+	font-size: .8em;
+}
+#Products, #Services,.opaco, #Slide
 {
-	margin: 1em 0;
-	padding: 1em 0; 
-	
+	padding: 3em 0;
 }
  p
-{
-	
+ {
 	text-align: justify;
 }
-#Products
-{
+
+#Products h2, #Products h3,#Products p{
 	color: #757575;
+
+}
+.redondeado{
+	border-radius: 50%;
+}
+#Services img , #Products img{
+	transition: 1s all;
+	cursor: pointer;
+}
+#Services img:hover, #Products img:hover{
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+	filter: grayscale(100%);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+#Services h2{
+	color: #9E9E9E;
 }
 /*
 Productos
@@ -108,10 +182,24 @@ Productos
 {
 	margin: 1em auto;
 }
-
+footer h4, #Services h3 {
+	color: #9E9E9E !important;
+}
 /*Nosotros
 --------------------------------------------------------------------*/
 .indicator
 {
-	background-color: #0d47a1 !important;
+	background-color: #444 !important;
+}
+.slider{
+	height: auto !important;
+}
+.indicators{
+	z-index: 10;
+}
+footer.page-footer{
+	margin-top:0 !important;
+}
+.slider .indicators .indicator-item.active{
+	background-color: #444;
 }

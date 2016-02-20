@@ -114,6 +114,7 @@ class AdminController implements Controller
             if (isset($id))
             {
                 $product->update($id, $request->nombre, $request->descripcion, $request->id_cat);
+                newFlashMessage('test', 'Producto ' . ucwords($request->nombre) . " actualizada.");
                 return redirect('admin/product');
             }
             else
@@ -123,6 +124,7 @@ class AdminController implements Controller
                 if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_real))
                 {
                     $product->create($request->nombre, $name_real, $request->descripcion, $request->id_cat);
+                    newFlashMessage('test', 'Producto ' . ucwords($request->nombre) . " creado.");
                     return redirect('admin/product');
                 }
                 return redirect('admin/product');
@@ -149,11 +151,13 @@ class AdminController implements Controller
             if(isset($id))
             {
                 $category->update($id, $request->nombre, $request->descripcion);
+                newFlashMessage('test', 'Categoria ' . ucwords($request->nombre) . " actualizada.");
                 return redirect('admin/category');
             }
             else
             {
                 $category->create($request->nombre, $request->descripcion);
+                newFlashMessage('test', 'Categoria ' . ucwords($request->nombre) . " creada.");
                 return redirect('admin/category/');
             }
         }
@@ -179,6 +183,7 @@ class AdminController implements Controller
             if (isset($id))
             {
                 $service->update($id, $request->nombre, $request->descripcion);
+                newFlashMessage('test', 'Servicio ' . ucwords($request->nombre) . " actualizada.");
                 return redirect('admin/service');
             }
             else
@@ -188,6 +193,7 @@ class AdminController implements Controller
                 if(move_uploaded_file($imagen->imagen['tmp_name'],$dir_file.$name_real))
                 {
                     $service->create($request->nombre, $name_real, $request->descripcion);
+                    newFlashMessage('test', 'Servicio ' . ucwords($request->nombre) . " creado.");
                     return redirect('admin/service');
                 }
                 return redirect('admin/service');
@@ -217,6 +223,7 @@ class AdminController implements Controller
             if(isset($id)){
                 $slide = new Sliders();
                 $slide->update($request->title, $request->subtitle, $id);
+                newFlashMessage('test', 'Slide #: ' .$id. " actualizado.");
                 return redirect('admin/slide');
             }else{
                 $dir_upload = '../resource/images/slide/';
@@ -224,6 +231,7 @@ class AdminController implements Controller
                 if(move_uploaded_file($imagen->imagen['tmp_name'], $dir_upload . $name_real)){
                     $slide = new Sliders();
                     $slide->create($name_real, $request->title, $request->subtitle);
+                    newFlashMessage('test', 'Slide creado.');
                     return redirect('admin/slide');
                 }
                 return redirect('admin/newslide');
@@ -241,6 +249,7 @@ class AdminController implements Controller
     public function deleteSlide($id){
         $slide = new Sliders();
         $slide->destroy($id);
+        newFlashMessage('test', 'Slide #: ' . $id . " eliminado.");
         return redirect('admin/slide');
     }
 
@@ -248,6 +257,7 @@ class AdminController implements Controller
     {
         $category = new Categories();
         $category->destroy($id);
+        newFlashMessage('test', 'Categoria eliminada');
         return redirect('admin/category');
     }
 
@@ -255,6 +265,8 @@ class AdminController implements Controller
     {
         $service = new Services();
         $service->destroy($id);
+        newFlashMessage('test', 'Servicio eliminado');
+
         return redirect('admin/service');
     }
 
@@ -273,10 +285,9 @@ class AdminController implements Controller
     public function About(){
         $request = (object) $_POST;
         $about = new Platform();
-        $about->create($request->title, $request->contenido, $request->option);
-        newFlashMessage('test', $request->option . " Actualizada.");
-
-        //return redirect('admin');
+        $about->update($request->title, $request->contenido, $request->option);
+        newFlashMessage('test', ucwords($request->option) . " actualizada.");
+        return redirect('admin');
     }
 
     public function __destruct()

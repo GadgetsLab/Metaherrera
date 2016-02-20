@@ -1,18 +1,23 @@
 <?php 
 namespace App\Controllers;
 use App\Controllers\Controller;
+use App\Models\Services;
 use App\Models\Sliders;
 use App\Models\Platform;
 
 Class WebController implements Controller
 {
 	public function Index()
-	{	$sliders = new Sliders();
+	{
+		$sliders = new Sliders();
 		$sliders = $sliders->where('estado = 1');
 		$about = new Platform();
 		$about = $about->all();
 		$title = "MetaHerrera";
-		return view('website/home', compact('title','sliders','about'));
+		$services = new Services();
+		$services = $services->all();
+		$menu_active = 'inicio';
+		return view('website/home', compact('title','sliders','about','menu_active', 'services'));
 	}
 
 	public function About()
@@ -20,13 +25,17 @@ Class WebController implements Controller
 		$title = "Nosotros";
 		$about = new Platform();
 		$about = $about->all();
-		return view('website/about', compact('title', 'about'));
+		$menu_active = 'about';
+
+		return view('website/about', compact('title', 'about', 'menu_active'));
 	}
 
 	public function Product()
 	{
 		$title = "Productos";
-		return view('website/product/home', compact('title'));
+		$menu_active = 'product';
+
+		return view('website/product', compact('title', 'menu_active'));
 	}
 
 	/*public function newProduct($id)
@@ -74,7 +83,9 @@ Class WebController implements Controller
 	public function Contact()
 	{
 		$title = "Contactenos";
-		return view('website/contact', compact('title'));
+		$menu_active = 'contact';
+
+		return view('website/contact', compact('title','menu_active'));
 	}
 	public function notification()
 	{

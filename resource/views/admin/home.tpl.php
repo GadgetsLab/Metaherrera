@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col s6">
         <h5>Visión</h5>
@@ -5,7 +6,7 @@
             <label for="title">Titulo</label>
             <input type="text" name="title" value="<?php echo $new->titulo_vision ?>"required>
             <label for="contenido">Contenido</label>
-            <textarea name="contenido" class="editor" cols="30" rows="10" required><?php  echo $new->vision ?></textarea>
+            <textarea name="contenido" required><?php  echo $new->vision ?></textarea>
             <input type="hidden" name="option" value="vision">
             <button class="btn enviar" type="submit">Actualizar</button>
         </form>
@@ -16,7 +17,7 @@
             <label for="title">Titulo</label>
             <input type="text" name="title" value="<?php echo $new->titulo_mision ?>" required>
             <label for="contenido">Contenido</label>
-            <textarea name="contenido" class="editor" cols="30" rows="10" required><?php echo $new->mision ?></textarea>
+            <textarea name="contenido" required><?php echo $new->mision ?></textarea>
             <input type="hidden" name="option" value="mision">
             <button class="btn enviar">Actualizar</button>
         </form>

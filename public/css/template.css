@@ -8,7 +8,7 @@ p, a, span, input, button, nav
     font-family: 'Open Sans', sans-serif !important;
      color:#757575;
 }
-form input
+#Vision input, #Mision input
 {
     display: block;
 }
@@ -64,5 +64,16 @@ form input
     width: 100%;
     margin: 0 0 .5em 0 !important;
     color: rgba(255,255,255,0.8);
+}
+textarea{
+    background-color: #ffffff !important;
+    height: 12rem !important;
+}
+.tab a.active{
+    background: #eeeeee !important;
+}
+#test1,#test2,#test3{
+    background-color: #eeeeee;
+    padding: 2em;
 }
 

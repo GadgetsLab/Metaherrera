@@ -5,18 +5,18 @@ $(".menu__movil").on("click", function(){
 });
 $('.slider').slider({full_width: true});
 $('.materialboxed').materialbox();
-
+/*
 $('.enviar').on('click', function(e){
 	e.preventDefault();
 	var data = $(this).parent().serialize();
 	console.log(data);
 
 	$.ajax({
-		url:"http://localhost/MetaHerrera/public/admin/about",
+		url:"http://localhost:8080/MetaHerrera/public/admin/about",
 		type:"POST",
 		data:data
 	})
 	.done(function(){
 		console.log("Actualizo");
 	});
-});
+});*/

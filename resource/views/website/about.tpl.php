@@ -1,16 +1,27 @@
-<div id="tabs"class="ed-container margin-vertic">
+<div class="ed-container margin-vertic">
     <div class="ed-item desde-tablet tablet-50 ">
-      <img class="base-100" src="http://lorempixel.com/250/160">
+        <img class="base-100" src="<?php echo BASE_URL ?>resource/images/web/nosotros.jpg">
     </div>
     <div class="ed-item base-100 tablet-50">
-      <ul class="tabs">
-        <li class="tab ed-item base-100 tablet-1-3"><a href="#mision" class="active blue-text text-grey darken-4"><?php echo $about->titulo_mision ?></a></li>
-        <li class="tab ed-item base-100 tablet-1-3"><a class="blue-text text-grey darken-4 " href="#vision"><?php echo $about->titulo_vision ?></a></li>
-        <li class="tab ed-item base-100 tablet-1-3"><a class="blue-text text-grey darken-4" href="#politica">Politicas de Calidad</a></li>
-      </ul>
-    <div id="mision" class="col s12"><?php echo $about->mision ?></div>
-    <div id="vision" class="col s12"><?php echo $about->vision ?></div>
-    <div id="politica" class="col s12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis consequuntur optio in quaerat non possimus harum labore vero quia. Porro deserunt id provident, quibusdam sint consequatur sed hic ex eum.</div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3">
+                        <a href="#test1" class="active grey-text darken-4"><?php echo $about->titulo_mision ?></a>
+                    </li>
+                    <li class="tab col s3"><a class="grey-text  darken-4" href="#test2">
+                            <?php echo $about->titulo_vision ?></a>
+                    </li>
+                    <li class="tab col s3">
+                        <a class="grey-text text-grey darken-4" href="#test3">Politicas de Calidad</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12"><?php echo $about->mision ?></div>
+            <div id="test2" class="col s12"><?php echo $about->vision ?></div>
+            <div id="test3" class="col s12">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Eius esse ipsum nam ratione suscipit voluptate voluptatibus. Dolorum, ipsam vero!
+                Adipisci dignissimos eos est ipsam nesciunt nulla possimus quo repellendus ut?</div>
+        </div>
     </div>
 </div>
-  
